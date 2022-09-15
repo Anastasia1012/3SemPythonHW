@@ -25,9 +25,11 @@ print(f'text->{SumOfOddNumbers(list)}')
 
 
 def get_numbers(n, first, last):
+    """возвращает список случайных чисел"""
     return [randint(first, last) for i in range(n)]
 
 def pairs_mult(numbers):
+    """возвращает произведение пар чисел"""
     results = []
     while len(numbers) > 1:
         results.append(numbers[0]*numbers[-1])
@@ -49,6 +51,7 @@ print(' => ',pairs_mult(mylist))
 
 
 def result(num):
+    """находит минимальное значение дробной части"""
     new_nums=[]
     s_num=len(nums)
     for i in range(s_num):
@@ -75,6 +78,7 @@ result(nums)
 #2 -> 10
 l = []
 def convert(b):
+    """преобразовывает в двоичное число"""
     if (b == 0):
         return l
     dig = b % 2
@@ -91,6 +95,7 @@ for i in l:
 #для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21] Негафибоначчи
 
 def fibonacci(n):
+    """вычисляет значение фибоначи(ряд чисел, в котором каждое следующее число равно сумме двух предыдущих)"""
     if n in (0,1):
         return 1
     else:
