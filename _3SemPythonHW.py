@@ -41,24 +41,30 @@ print(mylist, end =' ')
 print(' => ',pairs_mult(mylist))
 
 
-#3-Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между максимальным и минимальным значением дробной части элементов.
+#3-Задайте список из вещественных чисел. Напишите программу, 
+#которая найдёт разницу между максимальным и минимальным значением дробной части элементов.
 #Пример:
 #[1.1, 1.2, 3.1, 5.17, 10.02] => 0.18 или 18
 #[4.07, 5.1, 8.2444, 6.98] - 0.91 или 91
 
 
+def result(num):
+    new_nums=[]
+    s_num=len(nums)
+    for i in range(s_num):
+        new_nums.append(nums[i]-int(nums[i]))
+    myMax = 0
+    myMin = 0
+
+    for i in range(N):
+        if new_nums[i] > new_nums[myMax] : myMax=i
+        if new_nums[i] < new_nums[myMin] : myMin=i
+    print ( round(new_nums[myMax] - new_nums[myMin],2))
 N=5 # Количество цифр для сравнения
 
-nums = [randint(1, 20) for i in range(N)]
+nums = [1.1, 1.2, 3.1, 5.17, 10.02]
 print (nums)
-
-myMax = nums[0]
-myMin = nums[0]
-
-for i in range(N):
-    if nums[i] > myMax : myMax=nums[i]
-    if nums[i] < myMin : myMin=nums[i]
-print ('Max:', myMax, 'Min:', myMin)
+result(nums)
 
 #4- Напишите программу, которая будет преобразовывать десятичное число в двоичное. 
 #Подумайте, как это можно решить с помощью рекурсии.
@@ -84,7 +90,16 @@ for i in l:
 #для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21] Негафибоначчи
 
 def fibonacci(n):
-    if n in (1, 2):
+    if n in (0,1):
         return 1
-    return fibonacci(n - 1) + fibonacci(n - 2)
-print(fibonacci(10))
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+n = int(input("input a number term sequence:"))
+print("term sequence Fibonacci:")
+x=n-1
+while x:
+    print(f'-{fibonacci(x)}',end=' ')
+    x-=1
+for i in range(n):
+    print(fibonacci(i),end=' ')
+print()
