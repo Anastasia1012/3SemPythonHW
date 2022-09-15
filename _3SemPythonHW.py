@@ -22,10 +22,10 @@ print(f'text->{SumOfOddNumbers(list)}')
 #[2, 3, 4, 5, 6] => [12, 15, 16];
 #[2, 3, 5, 6] => [12, 15]
 
-from random import randint
 
-def get_numbers(n, frst, last):
-    return [randint(frst, last) for i in range(n)]
+
+def get_numbers(n, first, last):
+    return [randint(first, last) for i in range(n)]
 
 def pairs_mult(numbers):
     results = []
@@ -35,6 +35,10 @@ def pairs_mult(numbers):
         del numbers[-1] 
     if len(numbers) ==1: results.append(numbers[0]**2)       
     return results
+
+mylist = get_numbers(8, 2, 11)
+print(mylist, end =' ')
+print(' => ',pairs_mult(mylist))
 
 
 #3-Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между максимальным и минимальным значением дробной части элементов.
@@ -62,16 +66,17 @@ print ('Max:', myMax, 'Min:', myMin)
 #45 -> 101101
 #3 -> 11
 #2 -> 10
+l = []
 def convert(b):
     if (b == 0):
         return l
     dig = b % 2
     l.append(dig)
     convert(b // 2)
-a = int(input("Введите число: "))
+a = int(input("input number: "))
 convert(a)
 l.reverse()
-print("Двоичная форма числа:")
+print("binary form number:")
 for i in l:
     print(i)
 #5-Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
