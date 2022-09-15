@@ -60,7 +60,8 @@ def result(num):
         if new_nums[i] > new_nums[myMax] : myMax=i
         if new_nums[i] < new_nums[myMin] : myMin=i
     print ( round(new_nums[myMax] - new_nums[myMin],2))
-N=5 # Количество цифр для сравнения
+N=5 
+"""количество чисел для сравнения"""
 
 nums = [1.1, 1.2, 3.1, 5.17, 10.02]
 print (nums)
