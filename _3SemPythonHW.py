@@ -1,20 +1,20 @@
-﻿from random import randint
+﻿from random import randint # import random as "имя переменная" чтоб сократить название
 #Решение оформлять в виде функций
 #По возможности добавляйте docstring
 #1- Задайте список из нескольких чисел. Напишите программу, которая найдёт сумму элементов списка, стоящих на нечётной позиции.
 #Пример:
 #[2, 3, 5, 9, 3] -> на нечётных позициях элементы 3 и 9, ответ: 12
 
-def SumOfOddNumbers(List)->int: 
+def SumOfOddNumbers(List)->int: #3.вызываем функцию, стрелка int необязательно
     """считает сумму чисел на нечетных позициях"""
     sum=0 
-    for i in range(len(List)): #проходится до указанной цифры, не включая эту цифру
-        if i%2 != 0: #ищем нечетную позицию
+    for i in range(len(List)): #проходится до указанной цифры, не включая эту цифру,в основном, код читается справа налево
+        if i%2 != 0: #ищем нечетную позицию,остаток от деления переменной на 2
             sum=sum+List[i] #складываем
     return sum
 
-list=[2,3,5,9,3]
-print(f'text->{SumOfOddNumbers(list)}')
+list=[2,3,5,9,3] #1.сначала формируется список с заданными числами
+print(f'text->{SumOfOddNumbers(list)}')#2.выводим результат функции
 
 #2-Напишите программу, которая найдёт произведение пар чисел списка. 
 #Парой считаем первый и последний элемент, второй и предпоследний и т.д.
@@ -24,21 +24,21 @@ print(f'text->{SumOfOddNumbers(list)}')
 
 
 
-def get_numbers(n, first, last):
+def get_numbers(sizelist, first, last):# sizelist это размер списка
     """возвращает список случайных чисел"""
-    return [randint(first, last) for i in range(n)]
+    return [randint(first, last) for i in range(sizelist)]#возвращаю в состояние списка,randint случ образом от и до в целое число возвр.
 
 def pairs_mult(numbers):
     """возвращает произведение пар чисел"""
     results = []
     while len(numbers) > 1:
-        results.append(numbers[0]*numbers[-1])
+        results.append(numbers[0]*numbers[-1])# вместо посл цифры можно ввести -1. умножаем первый элемент на последний
         del numbers[0] 
         del numbers[-1] 
-    if len(numbers) ==1: results.append(numbers[0]**2)       
+    if len(numbers) ==1: results.append(numbers[0]**2)# возведение в квадрат       
     return results
 
-mylist = get_numbers(8, 2, 11)
+mylist = get_numbers(8, 2, 11)# присваиваем значения функции
 print(mylist, end =' ')
 print(' => ',pairs_mult(mylist))
 
@@ -55,14 +55,14 @@ def result(num):
     new_nums=[]
     s_num=len(nums)
     for i in range(s_num):
-        new_nums.append(nums[i]-int(nums[i]))
+        new_nums.append(nums[i]-int(nums[i]))# nums i это 1.1 - целая часть(без дробной части) 1=0,1(остаток дробной части)
     myMax = 0
     myMin = 0
 
     for i in range(N):
         if new_nums[i] > new_nums[myMax] : myMax=i
         if new_nums[i] < new_nums[myMin] : myMin=i
-    print ( round(new_nums[myMax] - new_nums[myMin],2))
+    print ( round(new_nums[myMax] - new_nums[myMin],2)) # находим разницу
 N=5 
 """количество чисел для сравнения"""
 
@@ -81,9 +81,9 @@ def convert(b):
     """преобразовывает в двоичное число"""
     if (b == 0):
         return l
-    dig = b % 2
-    l.append(dig)
-    convert(b // 2)
+    dig = b % 2 #digital
+    l.append(dig)#добавление в конец массива
+    convert(b // 2)#вызывваем функцию
 a = int(input("input number: "))
 convert(a)
 l.reverse()
@@ -102,7 +102,7 @@ def fibonacci(n):
         return fibonacci(n-1) + fibonacci(n-2)
 n = int(input("input a number term sequence:"))
 print("term sequence Fibonacci:")
-x=n-1
+x=n-1 # для негафибоначчи
 while x:
     print(f'-{fibonacci(x)}',end=' ')
     x-=1
